@@ -20,7 +20,7 @@ public class AppointmentManagerTest {
     //testing add method
     @Test
     public void testAdd() {
-        Appointment appointment = new Appointment(LocalDate.of(2024, 11, 23), LocalDate.of(2024, 11, 24)) {
+        Appointment appointment = new Appointment(LocalDate.of(2024, 11, 23), LocalDate.of(2024, 11, 24), "") {
             @Override
             public boolean occursOn(LocalDate date) {
                 return inBetween(date);
@@ -41,7 +41,7 @@ public class AppointmentManagerTest {
     //testing delete method
     @Test
     public void testDelete() {
-        Appointment appointment = new Appointment(LocalDate.of(2024, 11, 23), LocalDate.of(2024, 11, 24)) {
+        Appointment appointment = new Appointment(LocalDate.of(2024, 11, 23), LocalDate.of(2024, 11, 24), "") {
             @Override
             public boolean occursOn(LocalDate date) {
                 return inBetween(date);
@@ -62,14 +62,14 @@ public class AppointmentManagerTest {
     //testing update method
     @Test
     public void testUpdate() {
-        Appointment oldAppointment = new Appointment(LocalDate.of(2024, 11, 23), LocalDate.of(2024, 11, 24)) {
+        Appointment oldAppointment = new Appointment(LocalDate.of(2024, 11, 23), LocalDate.of(2024, 11, 24), "") {
             @Override
             public boolean occursOn(LocalDate date) {
                 return inBetween(date);
             }
         };
 
-        Appointment newAppointment = new Appointment(LocalDate.of(2024, 11, 25), LocalDate.of(2024, 11, 26)) {
+        Appointment newAppointment = new Appointment(LocalDate.of(2024, 11, 25), LocalDate.of(2024, 11, 26), "") {
             @Override
             public boolean occursOn(LocalDate date) {
                 return inBetween(date);
@@ -91,21 +91,21 @@ public class AppointmentManagerTest {
         // Initialize appointmentManager
         AppointmentManager appointmentManager = new AppointmentManager();
 
-        Appointment appointment1 = new Appointment(LocalDate.of(2024, 11, 23), LocalDate.of(2024, 11, 24)) {
+        Appointment appointment1 = new Appointment(LocalDate.of(2024, 11, 23), LocalDate.of(2024, 11, 24), "") {
             @Override
             public boolean occursOn(LocalDate date) {
                 return inBetween(date);
             }
         };
 
-        Appointment appointment2 = new Appointment(LocalDate.of(2024, 11, 23), LocalDate.of(2024, 11, 23)) {
+        Appointment appointment2 = new Appointment(LocalDate.of(2024, 11, 23), LocalDate.of(2024, 11, 23), "") {
             @Override
             public boolean occursOn(LocalDate date) {
                 return inBetween(date);
             }
         };
 
-        Appointment appointment3 = new Appointment(LocalDate.of(2024, 11, 24), LocalDate.of(2024, 11, 25)) {
+        Appointment appointment3 = new Appointment(LocalDate.of(2024, 11, 24), LocalDate.of(2024, 11, 25), "") {
             @Override
             public boolean occursOn(LocalDate date) {
                 return inBetween(date);

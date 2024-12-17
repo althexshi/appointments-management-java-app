@@ -5,11 +5,11 @@ package obj;
 import java.time.LocalDate;
 
 public class MonthlyAppointment extends Appointment {
-    private String description;
+
 
     public MonthlyAppointment(String description, LocalDate startDate, LocalDate endDate) {
-        super(startDate, endDate);
-        this.description = description;
+        super(startDate, endDate, description);
+
     }
 
     @Override
@@ -19,6 +19,6 @@ public class MonthlyAppointment extends Appointment {
 
     @Override
     public String toString() {
-        return String.format("Monthly - %s from %s to %s", description, getStartDate(), getEndDate());
+        return "Monthly - " + super.toString();
     }
 }

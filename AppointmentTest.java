@@ -3,6 +3,7 @@
 package obj;
 
 import java.time.LocalDate;
+
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,8 +14,8 @@ class AppointmentTest {
     private OnetimeAppointment onetimeAppointment;
     private MonthlyAppointment monthlyAppointment;
 
-    private Appointment createAppointment(LocalDate startDate, LocalDate endDate) {
-        return new Appointment(startDate, endDate) {
+    private Appointment createAppointment(LocalDate startDate, LocalDate endDate, String description) {
+        return new Appointment(startDate, endDate, description) {
             @Override
             public boolean occursOn(LocalDate date) {
                 return false;
@@ -26,7 +27,8 @@ class AppointmentTest {
     void InitialDate() {
         LocalDate startDate = LocalDate.of(2024, 10, 14);
         LocalDate endDate = LocalDate.of(2024, 10, 16);
-        appointment = new Appointment(startDate, endDate) {
+        String description = "";
+        appointment = new Appointment(startDate, endDate, description) {
             @Override
             public boolean occursOn(LocalDate date) {
                 return false;
@@ -91,7 +93,7 @@ class AppointmentTest {
 
     @Test
     public void testEqualsMethod() {
-        Appointment appointment2 = new Appointment(LocalDate.of(2024, 10, 14), LocalDate.of(2024, 10, 16)) {
+        Appointment appointment2 = new Appointment(LocalDate.of(2024, 10, 14), LocalDate.of(2024, 10, 16), "") {
             @Override
             public boolean occursOn(LocalDate date) {
                 return false;
@@ -100,7 +102,7 @@ class AppointmentTest {
 
         assertEquals(appointment, appointment2);
 
-        Appointment differentAppointment = new Appointment(LocalDate.of(2024, 10, 15), LocalDate.of(2024, 10, 17)) {
+        Appointment differentAppointment = new Appointment(LocalDate.of(2024, 10, 15), LocalDate.of(2024, 10, 17), "") {
             @Override
             public boolean occursOn(LocalDate date) {
                 return false;
@@ -112,21 +114,21 @@ class AppointmentTest {
 
     @Test
     public void CompareAppointments() {
-        Appointment appointment1 = new Appointment(LocalDate.of(2024, 11, 22), LocalDate.of(2024, 11, 22)) {
+        Appointment appointment1 = new Appointment(LocalDate.of(2024, 11, 22), LocalDate.of(2024, 11, 22), "") {
             @Override
             public boolean occursOn(LocalDate date) {
                 return inBetween(date);
             }
         };
 
-        Appointment appointment2 = new Appointment(LocalDate.of(2024, 11, 20), LocalDate.of(2024, 11, 21)) {
+        Appointment appointment2 = new Appointment(LocalDate.of(2024, 11, 20), LocalDate.of(2024, 11, 21), "") {
             @Override
             public boolean occursOn(LocalDate date) {
                 return inBetween(date);
             }
         };
 
-        Appointment appointment3 = new Appointment(LocalDate.of(2024, 11, 21), LocalDate.of(2024, 11, 22)) {
+        Appointment appointment3 = new Appointment(LocalDate.of(2024, 11, 21), LocalDate.of(2024, 11, 22), "") {
             @Override
             public boolean occursOn(LocalDate date) {
                 return inBetween(date);
